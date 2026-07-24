@@ -27,3 +27,4 @@ sudo mount -t cifs //<IP>/partage /mnt/smb_target -o username=user,password=pass
 
 ### 3. NULL SESSION / ACCES ANONYME ###
 smbclient -L //<IP>/ -N
+don't forget SUID tech..
