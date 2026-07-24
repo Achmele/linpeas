@@ -1,0 +1,29 @@
+### 1. ENUMERATION ###
+rpcinfo -p <IP>
+showmount -e <IP>
+
+
+### 2. MONTAGE ###
+mkdir /mnt/nfs_target
+sudo mount -t nfs <IP>:/partage /mnt/nfs_target -o nolock,vers=3
+
+
+
+
+# SMB (Server Message Block) - Port 139, 445
+
+#enum
+
+
+smbclient -L //<IP>/ -N
+enum4linux -a <IP>
+
+
+
+### 2. CONNEXION / EXPLORATION ###
+smbclient //<IP>/partage -N
+smbclient //<IP>/partage -U 'user%password'
+sudo mount -t cifs //<IP>/partage /mnt/smb_target -o username=user,password=pass
+
+### 3. NULL SESSION / ACCES ANONYME ###
+smbclient -L //<IP>/ -N
